@@ -1,0 +1,41 @@
+.card {
+  border: 1px solid $alto;
+}
+
+.card-header {
+  background: $wild-sand;
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+}
+
+.card-content {
+  padding: 10px 20px;
+}
+
+.card-text {
+  margin: 0;
+}
+
+.card-footer {
+  padding: 10px 20px;
+  background: $wild-sand;
+}
+
+.card-contact-icon {
+  margin-right: 20px;
+}
+
+.card-more {
+  margin-left: auto;
+  padding: .5em .6em;
+  background: $charcoal;
+  color: $wild-sand;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 1s linear;
+  &:hover {
+    color: $charcoal;
+    background: $wild-sand;
+  }
+}

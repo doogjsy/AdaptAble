@@ -1,4 +1,30 @@
 <p id="notice"><%= notice %></p>
 
-<%= link_to 'Edit', edit_client_path(@client) %> |
-<%= link_to 'Back', clients_path %>
+<div class="col-md-12">
+  <h2><%= @client.full_name %> <small>(<%= format_date(@client.date_of_birth) %>)</small></h2>
+</div>
+<div class="col-md-12">
+  <hr>
+</div>
+
+<div class="col-md-6">
+  <h5>Details</h5>
+  <h4>Medical Condition</h4>
+  <p class='lead'>
+    <%= @client.medical_condition %>
+  </p>
+  <%= link_to 'Edit', edit_client_path(@client) %> |
+  <%= link_to 'Back', clients_path %>
+</div>
+
+<div class="col-md-6">
+  <%= react_component 'ClientContacts', {
+    clientId: @client.id, contacts: @client.client_contacts.order('date DESC')
+  } %>
+</div>
+
+<div class="col-md-12 content-wrap">
+
+</div>
+
+

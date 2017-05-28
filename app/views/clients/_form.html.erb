@@ -1,29 +1,36 @@
-<%= form_with(model: client, local: true) do |f| %>
-  <% if client.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+<div class='col-sm-4 col-sm-offset-4'>
+  <hr>
+  <%= form_with(model: client, local: true) do |f| %>
+    <% if client.errors.any? %>
+      <div id="error_explanation">
+        <h2 class='text-center'><%= pluralize(client.errors.count, "error") %> prohibited this client from being saved:</h2>
+        <hr>
+        <ul>
+        <% client.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-      <ul>
-      <% client.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-group">
+      <%= f.text_field :first_name, placeholder: 'First name', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_field :last_name, placeholder: 'Last name', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.date_field :date_of_birth, class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.text_area :medical_condition, placeholder: 'Medical condition', class: 'form-control' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit class: 'btn btn-primary btn-block btn-lg' %>
     </div>
   <% end %>
-
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
-
-  <%= f.label :last_name %>
-  <%= f.text_field :last_name %>
-
-  <%= f.label :date_of_birth %>
-  <%= f.date_field :date_of_birth %>
-
-  <%= f.label :medical_condition %>
-  <%= f.text_area :medical_condition %>
-
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>
