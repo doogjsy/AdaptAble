@@ -13,19 +13,21 @@
   <p class='lead'>
     <%= @client.medical_condition %>
   </p>
-  <p>
-    <b>Address:</b>
-  </p>
-  <p>
-    <%= @address.housename %> <%= break_tag if @address.housename.present? %>
-    <%= @address.street_name %> <%= break_tag if @address.street_name.present? %>
-    <%= @address.street_name_2 %> <%= break_tag if @address.street_name_2.present? %>
-    <%= @address.parish %> <%= break_tag if @address.parish.present? %>
-    <%= @address.island %> <%= break_tag if  @address.island.present? %>
-    <%= @address.email %> <%= break_tag if @address.email.present? %>
-    <%= @address.landline %> <%= break_tag if @address.landline.present? %>
-    <%= @address.mobile %>
-  </p>
+  <% if @address.present? %>
+    <p>
+      <b>Address:</b>
+    </p>
+    <p>
+      <%= @address.housename %> <%= break_tag if @address.housename.present? %>
+      <%= @address.street_name %> <%= break_tag if @address.street_name.present? %>
+      <%= @address.street_name_2 %> <%= break_tag if @address.street_name_2.present? %>
+      <%= @address.parish %> <%= break_tag if @address.parish.present? %>
+      <%= @address.island %> <%= break_tag if  @address.island.present? %>
+      <%= @address.email %> <%= break_tag if @address.email.present? %>
+      <%= @address.landline %> <%= break_tag if @address.landline.present? %>
+      <%= @address.mobile %>
+    </p>
+  <% end %>
   <%= link_to 'Edit', edit_client_path(@client) %> |
   <%= link_to 'Back', clients_path %>
 </div>
