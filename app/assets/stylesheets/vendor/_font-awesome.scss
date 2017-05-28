@@ -1,0 +1,10 @@
+.fa-button {
+  padding: .5em .6em;
+  background: $charcoal;
+  border-radius: 50%;
+  color: $wild-sand;
+  &:hover {
+    color: $charcoal;
+    background: $wild-sand;
+  }
+}

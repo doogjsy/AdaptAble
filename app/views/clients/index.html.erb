@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 <h1>Clients</h1>
 
-<table class='table table-hover'>
+<table class='table table-striped'>
   <thead>
     <tr>
       <th>First Name</th>
@@ -20,9 +20,9 @@
         <td><%= format_date(client.date_of_birth) %></td>
         <td><%= client.medical_condition %></td>
         <td>
-          <%= link_to 'Show', client_path(client) %>
-          <%= link_to 'Edit', edit_client_path(client) %>
-          <%= link_to 'Destroy', client, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= link_to '', client_path(client), class: 'fa fa-button fa-search' %>
+          <%= link_to '', edit_client_path(client), class: 'fa fa-button fa-pencil' %>
+          <%= link_to '', client, method: :delete, class: 'fa fa-button fa-trash', data: { confirm: 'Are you sure?' } %>
         </td>
       </tr>
     <% end %>

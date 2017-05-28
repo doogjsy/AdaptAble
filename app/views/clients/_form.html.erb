@@ -14,20 +14,68 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.text_field :first_name, placeholder: 'First name', class: 'form-control' %>
+      <%= f.label :first_name %>
+      <%= f.text_field :first_name, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.text_field :last_name, placeholder: 'Last name', class: 'form-control' %>
+      <%= f.label :last_name %>
+      <%= f.text_field :last_name, class: 'form-control' %>
     </div>
 
     <div class="form-group">
+      <%= f.label :date_of_birth %>
       <%= f.date_field :date_of_birth, class: 'form-control' %>
     </div>
 
     <div class="form-group">
-      <%= f.text_area :medical_condition, placeholder: 'Medical condition', class: 'form-control' %>
+      <%= f.label :medical_condition %>
+      <%= f.text_area :medical_condition, class: 'form-control' %>
     </div>
+
+    <%= f.fields_for :client_detail do |ff| %>
+
+      <div class="form-group">
+        <%= ff.label :housename, 'House Name or Number' %>
+        <%= ff.text_field :housename, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :street_name %>
+        <%= ff.text_field :street_name, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :street_name_2 %>
+        <%= ff.text_field :street_name_2, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :parish %>
+        <%= ff.text_field :parish, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :island %>
+        <%= ff.select :island, ['Jersey', 'Guernsey'], {prompt: true}, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :email %>
+        <%= ff.text_field :email, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :landline %>
+        <%= ff.text_field :landline, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= ff.label :mobile %>
+        <%= ff.text_field :mobile, class: 'form-control' %>
+      </div>
+
+    <% end %>
 
     <div class="form-group">
       <%= f.submit class: 'btn btn-primary btn-block btn-lg' %>

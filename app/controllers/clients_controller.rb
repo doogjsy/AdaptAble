@@ -9,11 +9,13 @@ class ClientsController < ApplicationController
 
   # GET /clients/1
   def show
+    @address = @client.client_detail
   end
 
   # GET /clients/new
   def new
     @client = Client.new
+    @client.build_client_detail
   end
 
   # GET /clients/1/edit
@@ -58,7 +60,17 @@ class ClientsController < ApplicationController
       :first_name,
       :last_name,
       :date_of_birth,
-      :medical_condition
+      :medical_condition,
+      client_detail_attributes: [
+        :housename,
+        :street_name,
+        :street_name_2,
+        :parish,
+        :island,
+        :email,
+        :landline,
+        :mobile
+      ]
     )
   end
 end
