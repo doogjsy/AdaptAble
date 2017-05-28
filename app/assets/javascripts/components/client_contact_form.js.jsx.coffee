@@ -34,9 +34,13 @@
           <label htmlFor="type">
             Type
           </label>
-          <input onChange={this.handleChange} className='form-control' id='type' type="text" name='contactType'
-            value={this.state.contactType}
-          />
+          <select onChange={this.handleChange} className='form-control' id='type' type="select" name='contactType'
+            value={this.state.contactType}>
+            <option>Please Select</option>
+            <option value='phone'>Phone</option>
+            <option value='email'>Email</option>
+            <option value='other'>Other</option>
+          </select>
         </div>
         <div className='form-group'>
           <label htmlFor="notes">
