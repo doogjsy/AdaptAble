@@ -39,6 +39,8 @@
             <option>Please Select</option>
             <option value='phone'>Phone</option>
             <option value='email'>Email</option>
+            <option value='home visit'>Email</option>
+            <option value='technical support'>Email</option>
             <option value='other'>Other</option>
           </select>
         </div>
