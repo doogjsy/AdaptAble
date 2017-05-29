@@ -4,7 +4,20 @@ class ClientsController < ApplicationController
 
   # GET /clients
   def index
-    @clients = Client.all
+    @clients = Client.all.map do |client|
+      client.as_json.merge(show_path: client_path(client).as_json,
+        edit_path: edit_client_path(client).as_json)
+    end
+  end
+
+  def index_search
+    clients = Client.where('first_name LIKE ? OR last_name LIKE ?',
+                           "%#{params[:search]}%", "%#{params[:search]}%")
+    clients_json = clients.map do |client|
+                     client.as_json.merge(show_path: client_path(client).as_json,
+                     edit_path: edit_client_path(client).as_json)
+                   end
+    render json: clients_json
   end
 
   # GET /clients/1
