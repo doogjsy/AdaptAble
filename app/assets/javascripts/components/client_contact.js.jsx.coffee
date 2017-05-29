@@ -13,6 +13,12 @@
     else
       `<i className="fa fa-2x fa-comments card-contact-icon"></i>`
 
+  formattedNote: ->
+    lines = @state.contact.notes.split('\n')
+    formatted = lines.map (line, index) ->
+      `<span key={index}>{line}<br /></span>`
+    `<div>{formatted}</div>`
+
   render: ->
     `<div className='card'>
       <div className='card-header'>
@@ -22,7 +28,7 @@
       </div>
       <div className='js-hidden-body'>
         <div className="card-content">
-          {this.state.contact.notes}
+          {this.formattedNote()}
         </div>
       </div>
     </div>`

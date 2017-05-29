@@ -23,6 +23,9 @@
     @state.date
     @state.contactType
     @state.notes
+  increaseRows: () ->
+    textArea = $('.js-text-area')
+    textArea.attr("rows", textArea.val().split("\n").length+1||2);
   render: ->
     if @props.open
       `<form className='form-bordered' onSubmit={this.handleSubmit}>
@@ -53,9 +56,9 @@
           <label htmlFor="notes">
             Notes
           </label>
-          <input onChange={this.handleChange} className='form-control' type="text" name='notes'
-            value={this.state.notes}
-          />
+          <textarea onChange={this.handleChange} className='form-control js-text-area' type="text" rows='2'
+            cols='5' name='notes' value={this.state.notes} onKeyUp={this.increaseRows}>
+          </textarea>
         </div>
         <div className='form-group'>
           <button className='btn btn-primary btn-block' type="submit" disabled={!this.valid()}>
