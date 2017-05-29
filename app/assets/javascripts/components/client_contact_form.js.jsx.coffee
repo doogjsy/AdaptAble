@@ -4,6 +4,7 @@
     contactType: ''
     notes: ''
     clientId: @props.clientId
+    errors: @props.errors
   handleChange: (e) ->
     name = e.target.name
     @setState "#{ name }": e.target.value
@@ -17,7 +18,7 @@
 
       success: (data) =>
         @props.handleNewContact data
-        @getInitialState()
+        @setState @getInitialState()
 
   valid: ->
     @state.date
@@ -26,10 +27,21 @@
   increaseRows: () ->
     textArea = $('.js-text-area')
     textArea.attr("rows", textArea.val().split("\n").length+1||2);
+
+  showErrors: ->
+    @state.errors.map (errors, index) ->
+      formatted = errors.map (error, index) ->
+        `<span key={index}>{error}<br /></span>`
+      `<div className='alert alert-danger alert-dismissible' role='alert'>
+        <button type="button" className="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        {formatted}
+      </div>`
+
   render: ->
     if @props.open
       `<form className='form-bordered' onSubmit={this.handleSubmit}>
         <h4>New Contact</h4>
+        {this.showErrors()}
         <div className='form-group'>
           <label htmlFor="date">
             Date

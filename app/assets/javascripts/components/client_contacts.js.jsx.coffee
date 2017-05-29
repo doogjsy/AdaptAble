@@ -3,12 +3,17 @@
     contacts: @props.contacts
     clientId: @props.clientId
     open: false
+    errors: []
   toggleForm: ->
     @setState open: @state.open = !@state.open
   addContact: (contact) ->
-    contacts = @state.contacts.slice()
-    contacts.unshift contact
-    @setState contacts: contacts
+    if contact.id != null
+      contacts = @state.contacts.slice()
+      contacts.unshift contact
+      @setState contacts: contacts
+    else
+      errors = @state.errors.push contact.errors
+      @setState errors: errors
   render: ->
     clientContactComponent = @state.contacts.map (contact, i) =>
       `<ClientContact
@@ -20,6 +25,7 @@
         clientId = {this.state.clientId}
         handleNewContact = {this.addContact}
         open = {this.state.open}
+        errors = {this.state.errors}
       />`
 
     `<div>

@@ -8,6 +8,9 @@ class ClientContactsController < ApplicationController
       contact_type: params[:client_contact][:contact_type],
       notes: params[:client_contact][:notes]
     )
+    if contact.errors.any?
+      contact = contact.as_json.merge(errors: contact.errors.full_messages.as_json)
+    end
 
     render json: contact
   end
