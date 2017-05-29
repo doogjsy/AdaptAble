@@ -8,6 +8,7 @@ class ClientContactsController < ApplicationController
       contact_type: params[:client_contact][:contact_type],
       notes: params[:client_contact][:notes]
     )
+
     render json: contact
   end
 

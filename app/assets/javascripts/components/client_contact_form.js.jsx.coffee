@@ -18,6 +18,11 @@
       success: (data) =>
         @props.handleNewContact data
         @getInitialState()
+
+  valid: ->
+    @state.date
+    @state.contactType
+    @state.notes
   render: ->
     if @props.open
       `<form className='form-bordered' onSubmit={this.handleSubmit}>
@@ -39,8 +44,8 @@
             <option>Please Select</option>
             <option value='phone'>Phone</option>
             <option value='email'>Email</option>
-            <option value='home visit'>Home Visit</option>
-            <option value='technical support'>Technical Support</option>
+            <option value='home-visit'>Home Visit</option>
+            <option value='technical-support'>Technical Support</option>
             <option value='other'>Other</option>
           </select>
         </div>
@@ -53,7 +58,7 @@
           />
         </div>
         <div className='form-group'>
-          <button className='btn btn-primary btn-block' type="submit">
+          <button className='btn btn-primary btn-block' type="submit" disabled={!this.valid()}>
             Add New Contact
           </button>
         </div>
