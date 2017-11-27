@@ -37,4 +37,4 @@ production:
   pool: 5
   username: adaptable
   password: adaptable
-  host: localhost
+  host: 46.101.60.210
