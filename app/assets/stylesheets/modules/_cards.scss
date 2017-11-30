@@ -33,9 +33,13 @@
   color: $wild-sand;
   border-radius: 50%;
   cursor: pointer;
-  transition: all 1s linear;
+  transition: all .2s linear;
   &:hover {
     color: $charcoal;
     background: $wild-sand;
   }
+}
+
+.card-more-rotated {
+  transform: rotate(45deg)
 }

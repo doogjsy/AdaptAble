@@ -2,6 +2,10 @@ body {
   color: $charcoal;
 }
 
+a:hover {
+  text-decoration: none;
+}
+
 h5 {
   text-transform: uppercase;
   margin-bottom: 20px;
