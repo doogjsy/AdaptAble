@@ -75,6 +75,8 @@ class ClientsController < ApplicationController
       :date_of_birth,
       :medical_condition,
       client_detail_attributes: [
+        :id,
+        :_destroy,
         :housename,
         :street_name,
         :street_name_2,
