@@ -62,7 +62,7 @@
         {this.renderTypeIcon()}
         <p className= 'card-text'>{moment(this.state.contact.date).format('MMMM D, YYYY')}</p>
         <a className='fa-clickable' onClick={this.handleClick} target='_blank'>
-          <i className="fa fa-2x fa-file-pdf-o" aria-hidden="true" style={{marginLeft: '20px', color: '#444'}}></i>
+          <span style={{marginLeft: '20px', color: '#444'}}>Send as PDF</span>
         </a>
         <i className="fa fa-plus card-more js-more"></i>
       </div>
