@@ -16,14 +16,15 @@
 
   handleClick: ->
     swal
-      title: 'Email address'
+      title: 'Send Client Contact'
       html: '<div class="form-group">
               <label>Email</label>
-              <input type="email" id="swal-input1" class="form-control">
+              <input type="email" id="swal-input1" class="form-control" placeholder="Addressee">
             </div>
             <div class="form-group">
               <label>Message</label>
-              <textarea id="swal-input2" class="form-control js-text-area"></textarea>
+              <textarea id="swal-input2" class="form-control">
+              </textarea>
             </div>',
       preConfirm: () =>
         new Promise (resolve, reject) =>
@@ -60,7 +61,7 @@
       <div className='card-header'>
         {this.renderTypeIcon()}
         <p className= 'card-text'>{moment(this.state.contact.date).format('MMMM D, YYYY')}</p>
-        <a onClick={this.handleClick} target='_blank'>
+        <a className='fa-clickable' onClick={this.handleClick} target='_blank'>
           <i className="fa fa-2x fa-file-pdf-o" aria-hidden="true" style={{marginLeft: '20px', color: '#444'}}></i>
         </a>
         <i className="fa fa-plus card-more js-more"></i>
