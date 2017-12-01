@@ -69,3 +69,10 @@ gem 'react-rails'
 gem 'momentjs-rails'
 
 gem 'awesome_print'
+
+# Pour la PDF's
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+
+# For sending emails
+gem 'postmark-rails', '~> 0.15.0'

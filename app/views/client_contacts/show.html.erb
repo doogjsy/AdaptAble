@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <title>Loan Agreement</title>
+  <%= wicked_pdf_stylesheet_link_tag "pdf.css" %>
+  <script type="text/javascript" src="//use.typekit.net/kak2dmf.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+
+<body>
+  <div>
+    <p>
+      <%= client_contact.client.client_detail.address_to_s.html_safe %>
+    </p>
+
+    <h2><%= client_contact.client.full_name %></h2>
+
+    <p>
+      <%= client_contact.date.strftime('%B %e, %Y') %>
+    </p>
+
+    <p>
+      <%= client_contact.contact_type.humanize %>
+    </p>
+
+    <p>
+      <%= simple_format client_contact.notes %>
+    </p>
+  </div>
+</body>
+</html>

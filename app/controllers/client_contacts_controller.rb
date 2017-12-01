@@ -1,6 +1,7 @@
 class ClientContactsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_client, only: [:create]
+  before_action :set_client_contact, only: [:send_email]
 
   def create
     contact = @client.client_contacts.create(
@@ -15,10 +16,18 @@ class ClientContactsController < ApplicationController
     render json: contact
   end
 
+  def send_email
+    ::ClientContacts::SendEmail.new(@client_contact, params[:message], params[:email]).call
+  end
+
   private
 
   def set_client
     @client = Client.find(params[:client_id])
+  end
+
+  def set_client_contact
+    @client_contact = ClientContact.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
