@@ -1,20 +1,23 @@
 module ClientContacts
   class SendEmail
-    def initialize(client_contact, message, email)
+    def initialize(client_contact, message, email, from)
       @client_contact = client_contact
       @message = message
       @email = email
+      @from = from
       @action_view = ActionView::Base.new
       @tempfile = Tempfile.new(%w(client_contact .pdf))
     end
 
     def call
       generate_pdf
-      ClientContactMailer.client_contact(email: email, file: tempfile, message: message).deliver
+      ClientContactMailer.client_contact(
+        email: email, file: tempfile, message: message, from: from
+        ).deliver
     end
 
     private
-    attr_reader :email, :client_contact, :message
+    attr_reader :email, :client_contact, :message, :from
     attr_accessor :tempfile, :action_view
 
     def view

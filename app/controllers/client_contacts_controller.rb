@@ -17,7 +17,9 @@ class ClientContactsController < ApplicationController
   end
 
   def send_email
-    ::ClientContacts::SendEmail.new(@client_contact, params[:message], params[:email]).call
+    ::ClientContacts::SendEmail.new(
+      @client_contact, params[:message], params[:email], current_user.email
+      ).call
   end
 
   private
